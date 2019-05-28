@@ -12,14 +12,14 @@
 	//flushBuffer() properly adds the the numbers or operators to the arrayBuffer
 	function flushBuffer(){
 	    var result = "";
-		if(dataBuffer == ""){ return; }
-		if(!isNaN(dataBuffer)){ //this is a number, parse it as so
-			result = parseFloat(dataBuffer);
-		}else{ //this is a string (likely an operator)
-		    result = dataBuffer;
-		}
-	    arrayBuffer.push(result);
-		dataBuffer = "";
+        if(dataBuffer == ""){ return; }
+        if(!isNaN(dataBuffer)){ //this is a number, parse it as so
+            result = parseFloat(dataBuffer);
+        }else{ //this is a string (likely an operator)
+            result = dataBuffer;
+        }
+        arrayBuffer.push(result);
+        dataBuffer = "";
 	}
 	function clearEverything(){
 	    document.getElementById("equation").innerHTML = "";
