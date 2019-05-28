@@ -1,0 +1,87 @@
+body,html{
+	padding:0;
+	outline:0;
+	border:0;
+	margin:0;
+	font-size:0;
+}
+.header{
+	display:block;
+	height:15vh;
+	background-color:black;
+}
+.middle{
+	display:block;
+	margin:0 auto;
+	padding:0;
+	outline:0;
+	text-align:center;
+	background-color:black;
+}		
+.footer{
+	display:block;
+	height:15vh;
+	background-color:black;
+}
+.container{
+	text-align: center;
+}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-size:25pt;
+}
+td{
+	width:85px;
+	height:70px;
+}
+.stringrepresentation{
+	background-color:white;
+	color:black;
+	text-align:right;
+}
+table{
+	height:500px;
+	margin:0 auto;
+	color:white;
+}
+#equation{
+	height:50px;
+	font-size:18pt;
+	border-bottom:white;
+	padding-right:15px;
+	padding-top:3px;
+}
+#answer{
+	height:65px;
+	font-size:25pt;
+	border-top:white;
+	padding-right:15px;
+}
+.number,.op,.equals,.clear{ 
+	cursor:pointer; 
+}
+.number{ 
+	background-color:#eda700; 
+}
+.number:hover{ 
+	background-color:#f8b20c; 
+}
+.op{ 
+	background-color:#a6a6a6; 
+}
+.op:hover{ 
+	background-color:#bdbdbd; 
+}
+.equals{ 
+	background-color:green; 
+}
+.equals:hover{ 
+	background-color:#26b530; 
+}
+.clear{ 
+	background-color:#686868; 
+}
+.clear:hover{ 
+	background-color:#888888; 
+}
