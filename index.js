@@ -15,8 +15,7 @@
 		if(dataBuffer == ""){ return; }
 		if(!isNaN(dataBuffer)){ //this is a number, parse it as so
 			result = parseFloat(dataBuffer);
-		}
-		else{ //this is a string (likely an operator)
+		}else{ //this is a string (likely an operator)
 		    result = dataBuffer;
 		}
 	    arrayBuffer.push(result);
@@ -64,8 +63,7 @@
 		}
 		if(res.done == false){
 		    sweepViaParenthesis(arrayBufferClone,res);
-		}
-		else{
+		}else{
 			firstEquation.array = arrayBufferClone;
 			firstEquation.name = "eq" + res.index;
 			firstEquation.result = 0;
@@ -208,8 +206,7 @@
 		decimalPressed = false;
 		flushBuffer();
 		dataBuffer = "R"
-		flushBuffer();	
-		
+		flushBuffer();
 		insertLeftParen();
 	}
 	function insertSubtract(){
@@ -282,26 +279,21 @@
 		    if(buttonIsNumber(button) == true){ //insert number
 			    insertNumber(button.symbol);
 				stateMachines.push(currentMachine);
-			}
-			else if(button.symbol == "="){ //solve equation as zero
+			}else if(button.symbol == "="){ //solve equation as zero
 			    currentMachine.answer = solveEquation("");
 				stateMachines.push(currentMachine);
-			}
-			else if(button.symbol == "-"){ //insert negative
+			}else if(button.symbol == "-"){ //insert negative
 			    insertNegative();
 				currentMachine.answer = "NEGATIVE_PRESSED";
 				stateMachines.push(currentMachine);
-			}
-			else if(button.symbol == "R"){ //sqrt
+			}else if(button.symbol == "R"){ //sqrt
 			    insertSqRoot();
 				stateMachines.push(currentMachine);
-			}
-			else if(button.symbol == "("){ //left parenthesis
+			}else if(button.symbol == "("){ //left parenthesis
 			    insertLeftParen();
 				stateMachines.push(currentMachine);
 			}
-        }
-		else{
+        }else{
 		    //condition for left parenthesis: can only be placed after an operator, or after itself
 			if(button.symbol == "(" && (previousMachine.symbol == "(" || previousMachine.button.type == "operator") && previousMachine.answer != "NEGATIVE_PRESSED"){
 			    insertLeftParen();
@@ -329,29 +321,25 @@
 					if(previousMachine.symbol != "="){//do normally
 						if(button.symbol == "-"){
 						    insertSubtract();
-						}
-						else{
+						}else{
 						    insertOperator(button.symbol);
 						}
 						stateMachines.push(currentMachine);
 						return;
-					}
-					else if(button.symbol != "="){ //special case, get answer from the solve and use that as a basis for the next operation
+					}else if(button.symbol != "="){ //special case, get answer from the solve and use that as a basis for the next operation
 					    clearEverything();
 						
 						insertNumber(previousMachine.answer);
 						stateMachines.push(previousMachine);
 						if(button.symbol == "-"){
 						    insertSubtract();
-						}
-						else{
+						}else{
 						    insertOperator(button.symbol);
 						}
 						stateMachines.push(currentMachine);
 						return;
 					}
-				}
-				else{
+				}else{
 					if(button.symbol == "-" && previousMachine.answer != "NEGATIVE_PRESSED" && previousMachine.symbol != "."){ //cant have more than 1 negative in succession
 						insertNegative();
 						currentMachine.answer = "NEGATIVE_PRESSED";
@@ -385,8 +373,7 @@
 						stateMachines.push(currentMachine);
 						return;
 					}
-				}
-				else if(previousMachine.symbol == "="){ //operation repeat (example: 1+1====) expected result: 4
+				}else if(previousMachine.symbol == "="){ //operation repeat (example: 1+1====) expected result: 4
 				
 				    if(stateMachines.length <= 1) return;
 				
@@ -402,8 +389,7 @@
 					
 					if(previousPreviousMachine.symbol == "-"){
 						insertSubtract();
-					}
-					else{
+					}else{
 						insertOperator(previousPreviousMachine.symbol);
 					}	
 					stateMachines.push(previousPreviousMachine);
